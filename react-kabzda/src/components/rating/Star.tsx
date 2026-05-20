@@ -3,13 +3,9 @@ type Props = {
 
 }
 export const Star = ({selected}: Props) => {
-    if (selected) {
-        return (
-            <span>❤️</span>
-        )
-    } else {
-        return (
-            <span>🖤</span>
-        )
-    }
+    return (
+        <>
+            {selected ? <span>❤️</span> : <span>🖤</span>}
+        </>
+    )
 }

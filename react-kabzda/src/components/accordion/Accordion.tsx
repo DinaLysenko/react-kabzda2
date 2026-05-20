@@ -9,7 +9,7 @@ export const Accordion = ({title, collapsed}:Props) => {
     return (
         <>
             <AccordionTitle title={title} />
-            <AccordionBody collapsed={collapsed}/>
+            {!collapsed &&<AccordionBody/>}
         </>
     )
 }
