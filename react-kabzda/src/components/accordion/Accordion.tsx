@@ -5,11 +5,11 @@ type Props = {
     title: string
     collapsed: boolean
 }
-export const Accordion = ({title, collapsed}:Props) => {
+export const Accordion = ({title, collapsed}: Props) => {
     return (
         <>
-            <AccordionTitle title={title} />
-            {!collapsed &&<AccordionBody/>}
+            <AccordionTitle title={title}/>
+            {!collapsed && <AccordionBody/>}
         </>
     )
 }
