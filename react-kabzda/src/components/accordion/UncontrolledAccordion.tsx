@@ -6,8 +6,7 @@ export const UncontrolledAccordion = () => {
     const [collapsed, setCollapsed] = useState(false);
     return (
         <>
-            <AccordionTitle title={'Menu'}/>
-            <button onClick={()=>{setCollapsed(!collapsed)}}>Toggle</button>
+            <AccordionTitle title={'Menu'} onClick={() => setCollapsed(!collapsed)}/>
             {!collapsed && <AccordionBody/>}
         </>
     )

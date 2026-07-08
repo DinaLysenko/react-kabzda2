@@ -1,11 +1,12 @@
 type Props = {
     selected: boolean
-
+    onClick?: () => void
 }
-export const Star = ({selected}: Props) => {
+export const Star = ({selected, onClick}: Props) => {
+
     return (
         <>
-            {selected ? <span>❤️</span> : <span>🖤</span>}
+            {selected ? <span onClick={onClick}>❤️</span> : <span onClick={onClick}>🖤</span>}
         </>
     )
 }
