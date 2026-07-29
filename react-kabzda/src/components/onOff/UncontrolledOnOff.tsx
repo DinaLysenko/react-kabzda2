@@ -1,10 +1,10 @@
-type Props = {
-    switchOn: boolean,
-    setSwitchOn: (switchOn: boolean) => void,
-}
+// type PropsType={
+//     on: boolean,
+// }
+import {useState} from 'react';
 
-export const OnOff = ({switchOn, setSwitchOn}: Props) => {
-
+export const UncontrolledOnOff = () => {
+    const [on, setOn]=useState(false);
 
    const onStyle={
        width: '20px',
@@ -12,7 +12,7 @@ export const OnOff = ({switchOn, setSwitchOn}: Props) => {
        border: '1px solid black',
        padding: '5px',
        display: 'inline-block',
-       backgroundColor: switchOn ? 'green' : 'white',
+       backgroundColor: on ? 'green' : 'white',
    }
     const offStyle={
         width: '20px',
@@ -21,7 +21,7 @@ export const OnOff = ({switchOn, setSwitchOn}: Props) => {
         padding: '5px',
         display: 'inline-block',
         marginLeft: '5px',
-        backgroundColor: switchOn ? 'white' : 'red',
+        backgroundColor: on ? 'white' : 'red',
     }
     const indicatorStyle={
         width: '20px',
@@ -30,15 +30,15 @@ export const OnOff = ({switchOn, setSwitchOn}: Props) => {
         border: '1px solid black',
         display: 'inline-block',
         marginLeft: '5px',
-        backgroundColor: switchOn ? 'green' : 'red',
+        backgroundColor: on ? 'green' : 'red',
     }
     return (
         <div>
             <div style={onStyle} onClick={()=> {
-                setSwitchOn(true)
+                setOn(true)
             }}>On</div>
             <div style={offStyle} onClick={()=> {
-                setSwitchOn(false)
+                setOn(false)
             }}>Off</div>
             <div style={indicatorStyle}></div>
         </div>

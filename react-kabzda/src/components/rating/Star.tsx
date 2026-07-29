@@ -1,12 +1,14 @@
-type Props = {
-    selected: boolean
-    onClick?: () => void
-}
-export const Star = ({selected, onClick}: Props) => {
+import type {RatingValuesType} from './Rating.tsx';
 
+
+type Props = {
+    setRatingValue: (ratingValue: RatingValuesType) => void
+    ratingValue: RatingValuesType
+    selected: boolean
+}
+export const Star = ({ratingValue, setRatingValue, selected}: Props) => {
+//console.log(ratingValue, selected)
     return (
-        <>
-            {selected ? <span onClick={onClick}>❤️</span> : <span onClick={onClick}>🖤</span>}
-        </>
+        <span onClick={() => setRatingValue(ratingValue)}>{selected ? '❤️' : '🖤'}</span>
     )
 }

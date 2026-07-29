@@ -1,9 +1,12 @@
 type Props = {
     title: string
-    onClick: ()=> void
+    menuCollapsed: boolean
+    setMenuCollapsed: (menuCollapsed:boolean) => void
 }
-export const AccordionTitle=({title, onClick}:Props)=>{
+export const AccordionTitle=({title,  setMenuCollapsed, menuCollapsed}:Props)=>{
     return (
-        <h1 onClick={onClick}>{title}</h1>
+        <h1 onClick={()=> {
+            setMenuCollapsed(!menuCollapsed)
+        }}>{title}</h1>
     )
 }

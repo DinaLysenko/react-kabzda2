@@ -1,22 +1,29 @@
 import './App.css'
+import {Accordion} from './components/accordion/Accordion.tsx';
+import {useState} from 'react';
+import {Rating, type RatingValuesType} from './components/rating/Rating.tsx';
 import {OnOff} from './components/onOff/OnOff.tsx';
-import {UncontrolledAccordion} from './components/accordion/UncontrolledAccordion.tsx';
-import {UncontrolledRating} from './components/rating/UncontrolledRating.tsx';
 
 
 function App() {
+    const [menuCollapsed, setMenuCollapsed] = useState<boolean>(false)
+    const [ratingValue, setRatingValue] = useState<RatingValuesType>(0)
+    const [switchOn, setSwitchOn] = useState<boolean>(false)
     return (
         <>
             <AppTitle title="App Title"/>
-            <OnOff />
-            <UncontrolledAccordion />
-            <UncontrolledRating/>
-            {/*<Rating value={1}/>*/}
+            {/*<UncontrolledOnOff/>*/}
+            {/*<UncontrolledAccordion />*/}
+            {/*<UncontrolledRating/>*/}
+            <OnOff switchOn={switchOn} setSwitchOn={setSwitchOn}/>
+            <Accordion title="Menu" menuCollapsed={menuCollapsed}
+                       setMenuCollapsed={() => setMenuCollapsed(!menuCollapsed)}/>
+            <Rating ratingValue={ratingValue} setRatingValue={setRatingValue}/>
             {/*<Rating value={2}/>*/}
             {/*<Rating value={3}/>*/}
             {/*<Rating value={4}/>*/}
             {/*<Rating value={5}/>*/}
-            {/*<Accordion title='Menu' collapsed={true}/>*/}
+
             {/*<Accordion title='Users' collapsed={false}/>*/}
         </>
     )

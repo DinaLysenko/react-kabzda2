@@ -3,13 +3,14 @@ import {AccordionBody} from './AccordionBody.tsx';
 
 type Props = {
     title: string
-    collapsed: boolean
+    menuCollapsed: boolean
+    setMenuCollapsed: (menuCollapsed: boolean) => void
 }
-export const Accordion = ({title, collapsed}: Props) => {
+export const Accordion = ({title, menuCollapsed, setMenuCollapsed}: Props) => {
     return (
         <>
-            <AccordionTitle title={title}/>
-            {!collapsed && <AccordionBody/>}
+            <AccordionTitle title={title} setMenuCollapsed={setMenuCollapsed} menuCollapsed={menuCollapsed}/>
+            {!menuCollapsed && <AccordionBody/>}
         </>
     )
 }
