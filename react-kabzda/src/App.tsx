@@ -3,6 +3,9 @@ import {Accordion} from './components/accordion/Accordion.tsx';
 import {useState} from 'react';
 import {Rating, type RatingValuesType} from './components/rating/Rating.tsx';
 import {OnOff} from './components/onOff/OnOff.tsx';
+import {UncontrolledOnOff} from './components/unControlledOnOff/UncontrolledOnOff.tsx';
+import {UncontrolledRating} from './components/uncontrolledRating/UncontrolledRating.tsx';
+import {UncontrolledAccordion} from './components/uncontrolledAccordion/UncontrolledAccordion.tsx';
 
 
 function App() {
@@ -12,13 +15,16 @@ function App() {
     return (
         <>
             <AppTitle title="App Title"/>
-            {/*<UncontrolledOnOff/>*/}
-            {/*<UncontrolledAccordion />*/}
-            {/*<UncontrolledRating/>*/}
-            <OnOff switchOn={switchOn} setSwitchOn={setSwitchOn}/>
-            <Accordion title="Menu" menuCollapsed={menuCollapsed}
+            <UncontrolledOnOff/>
+            <UncontrolledAccordion/>
+            <UncontrolledRating/>
+            <OnOff switchOn={switchOn}
+                   setSwitchOn={setSwitchOn}/>
+            <Accordion title="Menu"
+                       menuCollapsed={menuCollapsed}
                        setMenuCollapsed={() => setMenuCollapsed(!menuCollapsed)}/>
-            <Rating ratingValue={ratingValue} setRatingValue={setRatingValue}/>
+            <Rating ratingValue={ratingValue}
+                    setRatingValue={setRatingValue}/>
             {/*<Rating value={2}/>*/}
             {/*<Rating value={3}/>*/}
             {/*<Rating value={4}/>*/}
