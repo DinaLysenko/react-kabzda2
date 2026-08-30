@@ -25,12 +25,6 @@ function App() {
                        setMenuCollapsed={() => setMenuCollapsed(!menuCollapsed)}/>
             <Rating ratingValue={ratingValue}
                     setRatingValue={setRatingValue}/>
-            {/*<Rating value={2}/>*/}
-            {/*<Rating value={3}/>*/}
-            {/*<Rating value={4}/>*/}
-            {/*<Rating value={5}/>*/}
-
-            {/*<Accordion title='Users' collapsed={false}/>*/}
         </>
     )
 }
