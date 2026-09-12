@@ -1,17 +1,30 @@
-import type {Meta, StoryObj} from '@storybook/react-vite';
 import {Accordion} from './Accordion'
+import {useState} from 'react';
 
 
-const meta = {
+export default {
     component: Accordion,
-} satisfies Meta<typeof Accordion>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const CollapsedAccordion: Story = () => {
-    return  <div>collapsed</div>
 }
-export const OpenedAccordion: Story = () => {
-    return         <div>opened</div>
+
+
+export const CollapsedAccordion = () => {
+    return (
+        <Accordion
+            title={'Collapsed Accordion'} setMenuCollapsed={() => {
+        }} menuCollapsed={true}/>
+    )
+}
+export const OpenedAccordion = () => {
+    return (
+        <Accordion
+            title={'Collapsed Accordion'} setMenuCollapsed={() => {
+        }} menuCollapsed={false}/>
+    )
+}
+export const AccordionDemo = () => {
+    const [menuCollapsed, setMenuCollapsed] = useState(false)
+    return (
+        <Accordion title={'Collapsed Accordion'} setMenuCollapsed={() => setMenuCollapsed(!menuCollapsed)}
+                   menuCollapsed={menuCollapsed}/>
+    )
 }
