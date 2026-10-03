@@ -5,12 +5,14 @@ type Props = {
     title: string
     menuCollapsed: boolean
     setMenuCollapsed: (menuCollapsed: boolean) => void
+    items: {value: number, name: string}[]
+    onClick: (value: number) => void
 }
-export const Accordion = ({title, menuCollapsed, setMenuCollapsed}: Props) => {
+export const Accordion = ({title, menuCollapsed, setMenuCollapsed, items, onClick}: Props) => {
     return (
         <>
             <AccordionTitle title={title} setMenuCollapsed={setMenuCollapsed} menuCollapsed={menuCollapsed}/>
-            {!menuCollapsed && <AccordionBody/>}
+            {!menuCollapsed && <AccordionBody items={items} onClick={onClick}/>}
         </>
     )
 }
