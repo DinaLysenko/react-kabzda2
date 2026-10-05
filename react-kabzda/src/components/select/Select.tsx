@@ -7,13 +7,30 @@ type Props={
 }
 export const Select=({items}:Props)=>{
     const[selected,setSelected]=useState(false)
+    const[value,setValue]=useState('none')
     const onClickSelect=()=>{
         setSelected(!selected)
     }
+    const onClickSelectTitle=(title:string)=>{
+        setSelected(!selected)
+        setValue(title)
+    }
+    const selectStyle={
+        border: '1px solid blue',
+        width: '10%',
+        padding: '10px',
+        fontWeight: 'bold',
+    }
+const optionStyle={
+    padding: '10px',
+}
     return (
         <div>
-            {!selected &&<div onClick={onClickSelect}>{'none'}</div>}
-            {selected &&items. map(i=><div key={i.id} onClick={onClickSelect}>{i.title}</div>)}
+            <div style={selectStyle} onClick={onClickSelect}>{value}</div>
+            {selected && <div style={selectStyle}>
+                {items. map(i=><div style={optionStyle} key={i.id}  onClick={()=>onClickSelectTitle(i.title)}>{i.title}</div>)}
+            </div>}
+
         </div>
     )
 }
