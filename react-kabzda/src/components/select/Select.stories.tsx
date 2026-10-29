@@ -1,14 +1,41 @@
 
-import {action} from 'storybook/actions';
 import {Select} from './Select.tsx';
+import {useState} from 'react';
 
 export default {
     component: Select,
 }
 
-const onClickCallback=action('some title was clicked')
-export const DefaultSelect = () => {
-    return (
-        <Select items={[{id:0, title: 'none'}, {id: 1, title: 'Moscow'}, {id: 2, title: 'London'},{id: 3, title: 'Paris'}]}  onChange={onClickCallback}  value={'none'}   />
-    )
+
+export const WithValue = () => {
+    const [value, setValue] = useState('2')
+    return < >
+        < Select
+            items={[{value: '1', title: 'Moscow'},
+                {
+                    value: '2', title:
+                        'London'
+                }
+                ,
+                {
+                    value: '3', title:
+                        'Paris'
+                }
+            ]
+            }
+            onChange={setValue}
+            value={value}
+        />
+    </>
+}
+
+
+export const WithOutValue = () => {
+const[value, setValue] = useState(null)
+   return <>
+        <Select items={[{value: '1', title: 'Moscow'}, {value: '2', title: 'London'}, {value: '3', title: 'Paris'}]}
+                onChange={setValue}
+                value={value}
+        />
+    </>
 }
