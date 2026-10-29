@@ -1,12 +1,12 @@
 type Props = {
     title: string
     collapsed: boolean
-    setCollapsed: (collapsed:boolean) => void
+    onClick: (collapsed:boolean) => void
 }
-export const AccordionTitle=({title, setCollapsed, collapsed}:Props)=>{
+export const AccordionTitle=({title, onClick, collapsed}:Props)=>{
     return (
         <h1 onClick={()=> {
-            setCollapsed(!collapsed)
+            onClick(!collapsed)
         }}>{title}</h1>
     )
 }

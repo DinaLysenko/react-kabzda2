@@ -1,16 +1,17 @@
-
 import {AccordionBody} from './AccordionBody.tsx';
-import {useState} from 'react';
+import {useReducer} from 'react';
 import {AccordionTitle} from './AccordionTitle.tsx';
+import {reducer, TOGGLE_CONSTANT} from './reducer.tsx';
 
 
 export const UncontrolledAccordion = () => {
-    const [collapsed, setCollapsed] = useState(false);
+
+    const [collapsed, dispatch] = useReducer(reducer, false);
     return (
         <>
             <AccordionTitle title={'Menu'}
                             collapsed={collapsed}
-                            setCollapsed={ setCollapsed}/>
+                            onClick={()=>dispatch({type: TOGGLE_CONSTANT})}/>
             {!collapsed && <AccordionBody/>}
         </>
     )
